@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Resort - Swarm Intelligence Console</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Premium Glassmorphic Header -->
+        <header class="app-header">
+            <div class="header-logo-group">
+                <div class="header-logo-icon">⚜️</div>
+                <div class="header-title-wrapper">
+                    <h1>AURA</h1>
+                    <span class="header-subtitle">Luxury Concierge Swarm Console</span>
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <div class="session-info-pill">
+                    <span class="status-dot pulsing"></span>
+                    <span class="session-label">SWARM ACTIVE</span>
+                    <span class="session-divider">|</span>
+                    <span id="session-id-display" class="session-id">...</span>
+                </div>
+                
+                <button id="reset-btn" class="header-btn secondary-btn" title="Reset Swarm and Guest Database">
+                    <span class="btn-icon">🔄</span> Reset State
+                </button>
+            </div>
+        </header>
+        
+        <!-- Main Dashboard Content Grid -->
+        <main class="dashboard-grid">
+            
+            <!-- Left Panel: Active Persona & Specs -->
+            <section class="panel left-panel">
+                <div class="panel-header">
+                    <h2>Active Swarm Persona</h2>
+                    <span class="panel-tag">Real-time Node</span>
+                </div>
+                
+                <div class="panel-body">
+                    <!-- Active Agent Glow Card -->
+                    <div id="active-agent-card" class="active-agent-card">
+                        <div class="agent-avatar-ring">
+                            <div id="active-agent-avatar" class="agent-avatar">⚜️</div>
+                        </div>
+                        <h3 id="active-agent-name">AuraTriage</h3>
+                        <div id="active-agent-title" class="agent-title-badge">Aura Welcome Lead</div>
+                        
+                        <div class="agent-desc-section">
+                            <p id="active-agent-desc">Warmly greets guests, answers FAQs, and routes inquiries to specialized specialists in the swarm.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Dynamic Instruction Block -->
+                    <div class="info-block">
+                        <h4>System Directives</h4>
+                        <div id="active-agent-directives" class="directives-scroll">
+                            Select an agent to view directives...
+                        </div>
+                    </div>
+                    
+                    <!-- Active Tools List -->
+                    <div class="info-block tools-block">
+                        <h4>Equipped Capabilities</h4>
+                        <div id="active-agent-tools" class="tools-list-scroll">
+                            <!-- Populated Dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Center Panel: The Premium Glassmorphic Chatroom -->
+            <section class="panel center-panel chat-container">
+                <div class="panel-header chat-header">
+                    <div class="chat-header-info">
+                        <h3>Aura Guest Communications</h3>
+                        <span id="current-agent-status" class="sub-status">AuraTriage is currently listening...</span>
+                    </div>
+                    <div class="chat-agent-indicators" id="active-indicator-row">
+                        <!-- Tiny active indicators of all agents -->
+                    </div>
+                </div>
+                
+                <!-- Chat Message Stream Log -->
+                <div id="chat-messages" class="chat-messages-scroll">
+                    <!-- Elegant introduction card -->
+                    <div class="chat-welcome-card">
+                        <div class="welcome-gold-crest">⚜️</div>
+                        <h3>Welcome to Aura Resort & Spa</h3>
+                        <p>This sandbox showcases a completely **decentralized multi-agent swarm architecture** built with Google's ADK and Vertex AI. Control transfers dynamically between agents as you speak.</p>
+                        
+                        <div class="suggested-prompts-grid">
+                            <div class="prompt-chip" onclick="applyPrompt('Hi, I\'m guest booking_404. I\'d like to check my billing balance and order a chilled bottle of champagne.')">
+                                <span>💎 billing & amenities</span>
+                            </div>
+                            <div class="prompt-chip" onclick="applyPrompt('Can I check availability for the Presidential Penthouse from June 1st to 8th?')">
+                                <span>🔑 room booking</span>
+                            </div>
+                            <div class="prompt-chip" onclick="applyPrompt('Hi, I need to request a late check-out for booking_101 until 4:00 PM, and book a Volcanic Hot Stone massage.')">
+                                <span>🌸 spa & check-out</span>
+                            </div>
+                            <div class="prompt-chip" onclick="applyPrompt('I want to charter a private yacht for 6 hours on Wednesday.')">
+                                <span>🚁 vip excursions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chat Input Tray -->
+                <div class="chat-input-container">
+                    <form id="chat-form">
+                        <input type="text" id="chat-input" placeholder="Address Aura Resort Concierge Swarm..." autocomplete="off" required>
+                        <button type="submit" id="send-btn" class="send-btn">
+                            <span class="send-icon">✦</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+            
+            <!-- Right Panel: Telemetry, SVG Topology, Ledger -->
+            <section class="panel right-panel">
+                
+                <!-- SVG Swarm Topology Section -->
+                <div class="telemetry-card topology-card">
+                    <div class="panel-header-sub">
+                        <h3>Live Swarm Topology Map</h3>
+                        <span class="live-pulse"></span>
+                    </div>
+                    <div class="svg-container">
+                        <svg id="topology-svg" viewBox="0 0 340 240">
+                            <!-- Custom SVG topology drawn dynamically in JS -->
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Live Swarm Audit Logs -->
+                <div class="telemetry-card audit-log-card">
+                    <div class="panel-header-sub">
+                        <h3>Swarm Audit Logs</h3>
+                    </div>
+                    <div id="audit-logs" class="audit-log-scroll">
+                        <div class="log-row sys-log">[System] Ready to receive elite communications.</div>
+                    </div>
+                </div>
+                
+                <!-- Resort Ledger State View -->
+                <div class="telemetry-card state-card">
+                    <div class="panel-header-sub">
+                        <h3>Resort Ledger (Persistent State)</h3>
+                        <span class="json-state-badge">JSON State</span>
+                    </div>
+                    <div id="json-viewer" class="json-scroll">
+                        <!-- Loaded Dynamically -->
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+    </div>
+    
+    <!-- Script Files -->
+    <script src="/static/index.js"></script>
+</body>
+</html>
